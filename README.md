@@ -14,14 +14,14 @@
 
 ## Description
 
-Start with a one- or two-sentence summary of what the module does and/or what
-problem it solves. This is your 30-second elevator pitch for your module.
-Consider including OS/Puppet version it works with.
+This Puppet module hardens systems up to CIS benchmarks level 1.  Most hardening modules
+that I found are written for new builds to be hardend, but I need something that I can
+harden existing systems with in a phased approach.
 
-You can give more descriptive information in a second paragraph. This paragraph
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?" If your module has a range of functionality (installation, configuration,
-management, etc.), this is the time to mention it.
+The hardening is broken up into sections that are all set to 'notify' by default.  This
+allows you to see a report of what will get changed so you can prepare and select items
+to disable if needed.  You can enable them, one-by-one, so there is less risk of break
+production systems.
 
 ## Setup
 

@@ -42,7 +42,12 @@
 #
 # Copyright 2018 Your name here, unless otherwise noted.
 #
-class cis {
+class cis (
 
+  $redhat7 = 'notify',
+
+){
+
+  include cis::redhat::network
 
 }
