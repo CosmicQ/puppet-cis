@@ -47,6 +47,21 @@ class cis (
 
 ){
 
+  file { '/etc/modprobe.d':
+    ensure => directory,
+    mode   => '0755',
+    owner  => 'root',
+    group  => 'root',
+  }
+
+  file { '/etc/modprobe.d/CIS.conf' :
+    ensure  => file,
+    mode    => '0600',
+    owner   => 'root',
+    group   => 'root',
+    require => File['/etc/modprobe.d'],
+  }
+
   # 3 - Network Configuration
   include cis::network::net_3_1
   include cis::network::net_3_2

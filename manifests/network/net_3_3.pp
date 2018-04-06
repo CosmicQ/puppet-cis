@@ -31,10 +31,11 @@ class cis::network::net_3_3 (
   }
 
   # 3.3.3
-  kernel_parameter { 'ipv6.disable':
-    ensure  => present,
-    value   => '1',
-    noop    => true
+  file_line { '(3.3.3) - Ensure IPv6 is disabled (Not Scored)':
+    ensure => present,
+    path   => '/etc/modprobe.d/CIS.conf',
+    line   => 'options ipv6 disable=1',
+    match  => '^options ipv6 disable',
   }
 
 }
