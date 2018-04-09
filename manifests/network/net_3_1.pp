@@ -17,30 +17,20 @@ class cis::network::net_3_1 (
 
   if $check {
     # 3.1.1
-    sysctl { 'net.ipv4.ip_forward':
-      ensure  => present,
-      value   => '0',
-      target  => '/etc/sysctl.d/net.ipv4.ip_forward.conf',
-      comment => 'Setting managed by Puppet.',
-      noop    => $run
+    $kernel_parameters = {
+      'net.ipv4.ip_forward' => '0',
+      'net.ipv4.conf.all.send_redirects' => '0',
+      'net.ipv4.conf.default.send_redirects' => '0',
     }
 
-    # 3.1.2
-    sysctl { 'net.ipv4.conf.all.send_redirects':
-      ensure  => present,
-      value   => '0',
-      target  => '/etc/sysctl.d/net.ipv4.conf.all.send_redirects.conf',
-      comment => 'Setting managed by Puppet.',
-      noop    => $run
-    }
-    
-    # 3.1.2
-    sysctl { 'net.ipv4.conf.default.send_redirects':
-      ensure  => present,
-      value   => '0',
-      target  => '/etc/sysctl.d/net.ipv4.conf.default.send_redirects.conf',
-      comment => 'Setting managed by Puppet.',
-      noop    => $run
+    $kernel_parameters.each |String $k_param, String $val| {
+      sysctl { "${k_param}":
+        ensure  => present,
+        value   => "${val}",
+        target  => "/etc/sysctl.d/${k_param}.conf",
+        comment => 'Setting managed by Puppet',
+        noop    => $run,
+      }
     }
   }
 }

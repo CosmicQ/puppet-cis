@@ -17,31 +17,21 @@ class cis::network::net_3_3 (
 
   if $check {
     # 3.3.1
-    sysctl { 'net.ipv6.conf.all.accept_ra':
-      ensure  => present,
-      value   => '0',
-      comment => 'Setting managed by Puppet.',
-      noop    => $run,
-    }
-    sysctl { 'net.ipv6.conf.default.accept_ra':
-      ensure  => present,
-      value   => '0',
-      comment => 'Setting managed by Puppet.',
-      noop    => $run,
+    $kernel_parameters = {
+      'net.ipv6.conf.all.accept_ra' => '0',
+      'net.ipv6.conf.default.accept_ra' => '0',
+      'net.ipv6.conf.all.accept_redirects' => '0',
+      'net.ipv6.conf.default.accept_redirects' => '0',
     }
 
-    # 3.3.2
-    sysctl { 'net.ipv6.conf.all.accept_redirects':
-      ensure  => present,
-      value   => '0',
-      comment => 'Setting managed by Puppet.',
-      noop    => $run,
-    }
-    sysctl { 'net.ipv6.conf.default.accept_redirects':
-      ensure  => present,
-      value   => '0',
-      comment => 'Setting managed by Puppet.',
-      noop    => $run,
+    $kernel_parameters.each |String $k_param, String $val| {
+      sysctl { "${k_param}":
+        ensure  => present,
+        value   => "${val}",
+        target  => "/etc/sysctl.d/${k_param}.conf",
+        comment => 'Setting managed by Puppet',
+        noop    => $run,
+      }
     }
 
     # 3.3.3
