@@ -33,7 +33,7 @@ class cis::network::net_3_2 (
       'net.ipv4.tcp_syncookies' => '1',
     }
 
-    $kernel_parameters.each |String $k_param, Hash $val| {
+    $kernel_parameters.each |String $k_param, String $val| {
       sysctl { "${k_param}":
         ensure  => present,
         value   => "${val}",
