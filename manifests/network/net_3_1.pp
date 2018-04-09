@@ -4,13 +4,18 @@ class cis::network::net_3_1 (
 
 ){
 
+  notify { "Starting 3.1": }
+
   $run = $status ? {
     'enable' => false,
     'notify' => true,
     default  => undef,
   }
 
+  notify { "Run = ${run}": }
+
   if $run {
+    notify { "Run is a go.  Starting sysctl": }
     # 3.1.1
     sysctl { 'net.ipv4.ip_forward':
       ensure  => present,
