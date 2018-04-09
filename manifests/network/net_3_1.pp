@@ -1,9 +1,9 @@
 class cis::network::net_3_1 {
 
   $run = $cis::network::net_3_1::status ? {
-    'enable'  => false,
-    'notify'  => true,
-    'disable' => undef,
+    'enable' => false,
+    'notify' => true,
+    default  => undef,
   }
 
   # 3.1.1
