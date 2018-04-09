@@ -6,8 +6,8 @@ class cis::network::net_3_1 {
     default  => undef,
   }
 
-  # 3.1.1
   if $run {
+    # 3.1.1
     sysctl { 'net.ipv4.ip_forward':
       ensure  => present,
       value   => '0',
@@ -22,6 +22,7 @@ class cis::network::net_3_1 {
       comment => 'Setting managed by Puppet.',
       noop    => $run
     }
+    
     # 3.1.2
     sysctl { 'net.ipv4.conf.default.send_redirects':
       ensure  => present,

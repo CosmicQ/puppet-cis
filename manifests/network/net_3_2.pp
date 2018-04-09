@@ -6,8 +6,8 @@ class cis::network::net_3_2 {
     default  => undef,
   }
   
-  # 3.2.1
   if $run {
+    # 3.2.1
     sysctl { 'net.ipv4.conf.all.accept_source_route':
       ensure  => present,
       value   => '0',
