@@ -9,100 +9,40 @@ class cis::network::net_3_2 (
     'notify' => true,
     default  => undef,
   }
-  
+
+  $kernel_parameters = {
+    'net.ipv4.conf.all.accept_source_route' => { value => '0' },
+    'net.ipv4.conf.default.accept_source_route' => { value => '0' },
+    'net.ipv4.conf.all.accept_redirects' => { value => '0' },
+    'net.ipv4.conf.default.accept_redirects' => { value => '0' },
+    'net.ipv4.conf.all.secure_redirects' => { value => '0' },
+    'net.ipv4.conf.default.secure_redirects' => { value => '0' },
+    'net.ipv4.conf.all.log_martians' => { value => '1' },
+    'net.ipv4.conf.default.log_martians' => { value => '1' },
+    'net.ipv4.icmp_echo_ignore_broadcasts' => { value => '1' },
+    'net.ipv4.icmp_ignore_bogus_error_responses' => { value => '1' },
+    'net.ipv4.conf.all.rp_filter' => { value => '1' },
+    'net.ipv4.conf.default.rp_filter' => { value => '1' },
+    'net.ipv4.tcp_syncookies' => { value => '1' },
+  }
+
   if $run {
     # 3.2.1
-    sysctl { 'net.ipv4.conf.all.accept_source_route':
-      ensure  => present,
-      value   => '0',
-      comment => 'Setting managed by Puppet.',
-      noop    => $run,
-    }
-    sysctl { 'net.ipv4.conf.default.accept_source_route':
-      ensure  => present,
-      value   => '0',
-      comment => 'Setting managed by Puppet.',
-      noop    => $run,
-    }
-    
     # 3.2.2
-    sysctl { 'net.ipv4.conf.all.accept_redirects':
-      ensure  => present,
-      value   => '0',
-      comment => 'Setting managed by Puppet.',
-      noop    => $run,
-    }
-    sysctl { 'net.ipv4.conf.default.accept_redirects':
-      ensure  => present,
-      value   => '0',
-      comment => 'Setting managed by Puppet.',
-      noop    => $run,
-    }
-
     # 3.2.3
-    sysctl { 'net.ipv4.conf.all.secure_redirects':
-      ensure  => present,
-      value   => '0',
-      comment => 'Setting managed by Puppet.',
-      noop    => $run,
-    }
-    sysctl { 'net.ipv4.conf.default.secure_redirects':
-      ensure  => present,
-      value   => '0',
-      comment => 'Setting managed by Puppet.',
-      noop    => $run,
-    }
-
     # 3.2.4
-    sysctl { 'net.ipv4.conf.all.log_martians':
-      ensure  => present,
-      value   => '1',
-      comment => 'Setting managed by Puppet.',
-      noop    => $run,
-    }
-    sysctl { 'net.ipv4.conf.default.log_martians':
-      ensure  => present,
-      value   => '1',
-      comment => 'Setting managed by Puppet.',
-      noop    => $run,
-    }
-
     # 3.2.5
-    sysctl { 'net.ipv4.icmp_echo_ignore_broadcasts':
-      ensure  => present,
-      value   => '1',
-      comment => 'Setting managed by Puppet.',
-      noop    => $run,
-    }
-
     # 3.2.6
-    sysctl { 'net.ipv4.icmp_ignore_bogus_error_responses':
-      ensure  => present,
-      value   => '1',
-      comment => 'Setting managed by Puppet.',
-      noop    => $run,
-    }
-
     # 3.2.7
-    sysctl { 'net.ipv4.conf.all.rp_filter':
-      ensure  => present,
-      value   => '1',
-      comment => 'Setting managed by Puppet.',
-      noop    => $run,
-    }
-    sysctl { 'net.ipv4.conf.default.rp_filter':
-      ensure  => present,
-      value   => '1',
-      comment => 'Setting managed by Puppet.',
-      noop    => $run,
-    }
-
     # 3.2.8
-    sysctl { 'net.ipv4.tcp_syncookies':
-      ensure  => present,
-      value   => '1',
-      comment => 'Setting managed by Puppet.',
-      noop    => $run,
+    $kernel_parameters.each |String $k_param, Hash $val| {
+      sysctl { "${k_param}":
+        ensure  => present,
+        value   => "${val}",
+        target  => "/etc/sysctl.d/${k_param}.conf",
+        comment => 'Setting managed by Puppet',
+        noop    => $run,
+      }
     }
   }
 }

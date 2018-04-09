@@ -15,6 +15,7 @@ class cis::network::net_3_1 (
     sysctl { 'net.ipv4.ip_forward':
       ensure  => present,
       value   => '0',
+      target  => '/etc/sysctl.d/net.ipv4.ip_forward.conf',
       comment => 'Setting managed by Puppet.',
       noop    => $run
     }
@@ -23,6 +24,7 @@ class cis::network::net_3_1 (
     sysctl { 'net.ipv4.conf.all.send_redirects':
       ensure  => present,
       value   => '0',
+      target  => '/etc/sysctl.d/net.ipv4.conf.all.send_redirects.conf',
       comment => 'Setting managed by Puppet.',
       noop    => $run
     }
@@ -31,6 +33,7 @@ class cis::network::net_3_1 (
     sysctl { 'net.ipv4.conf.default.send_redirects':
       ensure  => present,
       value   => '0',
+      target  => '/etc/sysctl.d/net.ipv4.conf.default.send_redirects.conf',
       comment => 'Setting managed by Puppet.',
       noop    => $run
     }
