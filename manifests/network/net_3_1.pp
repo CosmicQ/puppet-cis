@@ -5,6 +5,7 @@ class cis::network::net_3_1 (
 ){
 
   notify { "Starting 3.1": }
+  notify { "Status = ${status}": }
 
   $run = $status ? {
     'enable' => false,
