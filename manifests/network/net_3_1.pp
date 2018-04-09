@@ -16,7 +16,6 @@ class cis::network::net_3_1 (
   }
 
   if $check {
-    notify { "Run is a go.  Starting sysctl": }
     # 3.1.1
     sysctl { 'net.ipv4.ip_forward':
       ensure  => present,

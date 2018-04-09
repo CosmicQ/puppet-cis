@@ -4,14 +4,18 @@ class cis::network::net_3_5 (
 
 ){
 
+  $check = $status ? {
+    'enable' => true,
+    'notify' => true,
+    default  => false,
+  }
+
   $run = $status ? {
     'enable' => false,
-    'notify' => true,
-    default  => undef,
+    default  => true,
   }
-  
-  if $run {
 
+  if $check {
     # 3.5.1, 3.5.2, 3.5.3, 3.5.4
     $protocol_list = [
       'dccp',

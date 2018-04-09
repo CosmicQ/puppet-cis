@@ -4,14 +4,18 @@ class cis::network::net_3_4 (
 
 ){
 
+  $check = $status ? {
+    'enable' => true,
+    'notify' => true,
+    default  => false,
+  }
+
   $run = $status ? {
     'enable' => false,
-    'notify' => true,
-    default  => undef,
+    default  => true,
   }
-  
-  if $run {
 
+  if $check {
     # 3.4.1
     # Add package resource for tcp_wrappers
 

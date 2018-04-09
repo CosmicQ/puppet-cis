@@ -4,13 +4,18 @@ class cis::network::net_3_3 (
 
 ){
 
+  $check = $status ? {
+    'enable' => true,
+    'notify' => true,
+    default  => false,
+  }
+
   $run = $status ? {
     'enable' => false,
-    'notify' => true,
-    default  => undef,
+    default  => true,
   }
-  
-  if $run {
+
+  if $check {
     # 3.3.1
     sysctl { 'net.ipv6.conf.all.accept_ra':
       ensure  => present,

@@ -4,15 +4,19 @@ class cis::network::net_3_2 (
 
 ){
 
-  $run = $status ? {
-    'enable' => false,
+  $check = $status ? {
+    'enable' => true,
     'notify' => true,
-    default  => undef,
+    default  => false,
   }
 
-  # 3.2.1 - 3.2.8
-  if $run {
+  $run = $status ? {
+    'enable' => false,
+    default  => true,
+  }
 
+  if $check {
+    # 3.2.1 - 3.2.8
     $kernel_parameters = {
       'net.ipv4.conf.all.accept_source_route' => { value => '0' },
       'net.ipv4.conf.default.accept_source_route' => { value => '0' },

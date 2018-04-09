@@ -4,14 +4,18 @@ class cis::network::net_3_7 (
 
 ){
 
+  $check = $status ? {
+    'enable' => true,
+    'notify' => true,
+    default  => false,
+  }
+
   $run = $status ? {
     'enable' => false,
-    'notify' => true,
-    default  => undef,
+    default  => true,
   }
-  
-  if $run {
 
+  if $check {
     # 3.7 - Ensure wireless interfaces are disabled
    
     if $facts['networking']['interfaces'] == undef {
