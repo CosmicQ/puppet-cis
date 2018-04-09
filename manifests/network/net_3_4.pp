@@ -1,6 +1,10 @@
-class cis::network::net_3_4 {
+class cis::network::net_3_4 (
 
-  $run = $cis::network::net_3_4::status ? {
+  String $status = 'disable'
+
+){
+
+  $run = $status ? {
     'enable' => false,
     'notify' => true,
     default  => undef,
