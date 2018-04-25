@@ -4,5 +4,23 @@ defaults:
   datadir: data
   data_hash: yaml_data
 hierarchy:
-  - name: "common"
-    path: "common.yaml"
+  - name: "Section 1 - Setup"
+    path: "setup.yaml"
+
+  - name: "Section 2 - Services"
+    path: "services.yaml"
+
+  - name: "Section 3 - Network"
+    path: "network.yaml"
+
+  - name: "Section 4 - Logging"
+    path: "logging.yaml"
+
+  - name: "Section 5 - Access"
+    path: "access.yaml"
+
+  - name: "Section 6 - System"
+    path: "system.yaml"
+    
+  - name: "Switches to enable/disable"
+    path: "switches.yaml"

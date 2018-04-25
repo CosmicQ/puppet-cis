@@ -63,6 +63,8 @@ class cis (
   }
 
   # 3 - Network Configuration
+  include cis::setup
+  include cis::services
   include cis::network
 
 }

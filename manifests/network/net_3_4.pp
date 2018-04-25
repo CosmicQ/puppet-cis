@@ -17,7 +17,11 @@ class cis::network::net_3_4 (
 
   if $check {
     # 3.4.1
-    # Add package resource for tcp_wrappers
+    # tcp_wrappers
+    package { 'tcp_wrappers':
+      ensure => installed,
+      noop   => $run,
+    }
 
     # 3.4.2, 3.4.4
     file { '/etc/hosts.allow':
