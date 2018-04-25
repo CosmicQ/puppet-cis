@@ -1,6 +1,6 @@
 ---
 # Setup
-filesystem_list:
+cis::setup::set_1_1::filesystem_list:
   - 'cramfs'
   - 'freevxfs'
   - 'jffs2'
@@ -10,7 +10,7 @@ filesystem_list:
   - 'udf'
   - 'vfat'
 
-filesystem_mounts:
+cis::setup::set_1_1::filesystem_mounts:
   '/tmp': 'nodev,nosuid,noexec'
   '/var': 'nodev'
   '/var/log': 'nodev'
