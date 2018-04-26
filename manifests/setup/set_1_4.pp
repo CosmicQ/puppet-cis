@@ -1,22 +1,52 @@
-  case $::operatingsystemmajrelease {
-    6: {
-      file {'/etc/grub.conf':
-        owner => root,
-        group => root,
-        mode  => '0600',
-      }
-    }
-    7: {
-      file {'/boot/grub2/grub.cfg':
-        owner => root,
-        group => root,
-        mode  => '0600',
-      }
-    }
-    default: {}
+class cis::setup::set_1_4 (
+
+  String $status            = 'disable',
+
+){
+
+  $check = $status ? {
+    'enable'  => true,
+    'notify'  => true,
+    default   => false,
   }
 
+  $run = $status ? {
+    'enable'  => false,
+    default   => true,
+  }
 
+# RH6
+  file { '/etc/sysconfig/grub':
+    owner => 0,
+    group => 0,
+    mode  => '0644',
+    noop  => $run,
+  }
+
+  file { '/boot/grub':
+    ensure => directory,
+    owner  => 0,
+    group  => 0,
+    mode   => '0755',
+    noop   => $run,
+  }
+
+  file { '/boot/grub/grub.conf':
+    owner  => 0,
+    group  => 0,
+    mode   => '0600',
+    noop   => $run,
+  }
+
+# RH7
+
+/etc/sysconfig/grub
+/etc/default/grub
+/etc/grub.d
+/etc/grub2.cfg
+
+/boot/grub2 (0700)
+/boot/grub2/grub.cfg
 
 ## Setting below is needed for CIS compliance
 GRUB_CMDLINE_LINUX_DEFAULT="audit=1 selinux=1 enforcing=1"
@@ -35,3 +65,5 @@ PROMPT=no
 SINGLE=/sbin/sulogin
 AUTOSWAP=no
 UMASK=027
+
+}

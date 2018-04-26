@@ -1,6 +1,7 @@
 class cis::network::net_3_5 (
 
   String $status = 'disable'
+  Array $protocol_list
 
 ){
 
@@ -17,13 +18,6 @@ class cis::network::net_3_5 (
 
   if $check {
     # 3.5.1, 3.5.2, 3.5.3, 3.5.4
-    $protocol_list = [
-      'dccp',
-      'sctp',
-      'rds',
-      'tipc',
-    ]
-
     $protocol_list.each | String $protocol | {
       file_line { $protocol:
         ensure => present,

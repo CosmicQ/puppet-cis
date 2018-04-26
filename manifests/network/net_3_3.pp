@@ -1,6 +1,7 @@
 class cis::network::net_3_3 (
 
   String $status = 'disable'
+  Hash   $kernel_parameters
 
 ){
 
@@ -17,13 +18,6 @@ class cis::network::net_3_3 (
 
   if $check {
     # 3.3.1
-    $kernel_parameters = {
-      'net.ipv6.conf.all.accept_ra' => '0',
-      'net.ipv6.conf.default.accept_ra' => '0',
-      'net.ipv6.conf.all.accept_redirects' => '0',
-      'net.ipv6.conf.default.accept_redirects' => '0',
-    }
-
     $kernel_parameters.each |String $k_param, String $val| {
       sysctl { "${k_param}":
         ensure  => present,

@@ -1,14 +1,42 @@
+class cis::setup::set_1_3 (
+
+  String $status            = 'disable',
+  Array  $filesystem_list,
+  Hash   $filesystem_mounts
+  Hash   $aide_cron
+
+){
+
+  $check = $status ? {
+    'enable'  => true,
+    'notify'  => true,
+    default   => false,
+  }
+
+  $run = $status ? {
+    'enable'  => false,
+    default   => true,
+  }
+
   package {'aide':
     ensure => installed,
+    noop   => $run,
   }
-  $aide_check_cron = hiera('cis::aide_check_cron',{hour=>5,minute=>0})
-  $aide_check_hour = $aide_check_cron[hour]
-  $aide_check_min  = $aide_check_cron[minute]
+
+  exec { 'initialize_aide':
+    command => '/usr/sbin/aide --init',
+    creates => '/var/lib/aide/aide.db.gz',
+    require => Package['aide'],
+    noop    => $run,
+  }
 
   cron { 'aide-check':
     command => '/usr/sbin/aide --check',
     user    => root,
-    hour    => $aide_check_hour,
-    minute  => $aide_check_min,
-    require => Package['aide'],
+    hour    => $aide_cron[hour],
+    minute  => $aide_cron[minute],
+    require => Exec['initialize_aide'],
+    noop    => $run,
   }
+
+}

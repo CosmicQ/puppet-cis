@@ -1,0 +1,96 @@
+---
+# "Status" values are: 'enable', 'notify', 'disable'
+
+# Section 1 - Initial Setup
+cis::setup::set_1_1: 'notify'
+cis::setup::set_1_2: 'notify'
+cis::setup::set_1_3: 'notify'
+cis::setup::set_1_4: 'notify'
+cis::setup::set_1_5: 'notify'
+cis::setup::set_1_7: 'notify'
+cis::setup::set_1_8: 'notify'
+
+# Section 2 - Services
+cis::services::srv_2_1: 'notify'
+cis::services::srv_2_2: 'notify'
+cis::services::srv_2_3: 'notify'
+
+# Section 3 - Network Configuration
+cis::network::net_3_1::status: 'notify'
+cis::network::net_3_2::status: 'notify'
+cis::network::net_3_3::status: 'notify'
+cis::network::net_3_4::status: 'notify'
+cis::network::net_3_5::status: 'notify'
+cis::network::net_3_6::status: 'notify'
+cis::network::net_3_7::status: 'notify'
+
+# Section 4 - Logging and Auditing
+cis::logging::log_4_1::status: 'notify'
+cis::logging::log_4_2::status: 'notify'
+
+# Section 5 - Access, Authentication and Authorization
+cis::access::aaa_5_1::status: 'notify'
+cis::access::aaa_5_2::status: 'notify'
+cis::access::aaa_5_3::status: 'notify'
+cis::access::aaa_5_4::status: 'notify'
+cis::access::aaa_5_5::status: 'notify'
+cis::access::aaa_5_6::status: 'notify'
+
+# Section 6 - System Maintenance
+cis::system::sys_6_1::status: 'notify'
+cis::system::sys_6_2::status: 'notify'
+
+##########################################################
+# Setup
+cis::setup::set_1_1::filesystem_list:
+  - 'cramfs'
+  - 'freevxfs'
+  - 'jffs2'
+  - 'hfs'
+  - 'hfsplus'
+  - 'squashfs'
+  - 'udf'
+  - 'vfat'
+
+cis::setup::set_1_1::filesystem_mounts:
+  '/tmp': 'nodev,nosuid,noexec'
+  '/var': 'nodev'
+  '/var/log': 'nodev'
+  '/var/log/audit': 'nodev'
+  '/home': 'nodev'
+  '/opt': 'nodev'
+  '/dev/shm': 'nodev,nosuid,noexec'
+
+##########################################################
+# Network
+cis::network::net_3_1::kernel_parameters:
+  'net.ipv4.ip_forward': '0'
+  'net.ipv4.conf.all.send_redirects': '0'
+  'net.ipv4.conf.default.send_redirects': '0'
+
+cis::network::net_3_2::kernel_parameters:
+  'net.ipv4.conf.all.accept_source_route': '0'
+  'net.ipv4.conf.default.accept_source_route': '0'
+  'net.ipv4.conf.all.accept_redirects': '0'
+  'net.ipv4.conf.default.accept_redirects': '0'
+  'net.ipv4.conf.all.secure_redirects': '0',
+  'net.ipv4.conf.default.secure_redirects': '0'
+  'net.ipv4.conf.all.log_martians': '1'
+  'net.ipv4.conf.default.log_martians': '1'
+  'net.ipv4.icmp_echo_ignore_broadcasts': '1'
+  'net.ipv4.icmp_ignore_bogus_error_responses': '1'
+  'net.ipv4.conf.all.rp_filter': '1'
+  'net.ipv4.conf.default.rp_filter': '1'
+  'net.ipv4.tcp_syncookies': '1'
+
+cis::network::net_3_3::kernel_parameters:
+  'net.ipv6.conf.all.accept_ra': '0'
+  'net.ipv6.conf.default.accept_ra': '0'
+  'net.ipv6.conf.all.accept_redirects': '0'
+  'net.ipv6.conf.default.accept_redirects': '0'
+
+cis::network::net_3_5::protocol_list:
+  - 'dccp'
+  - 'sctp'
+  - 'rds'
+  - 'tipc'

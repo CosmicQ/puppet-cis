@@ -1,8 +1,8 @@
 class cis::setup::set_1_1 (
 
   String $status            = 'disable',
-  Array  $filesystem_list   = undef,
-  Hash   $filesystem_mounts = undef
+  Array  $filesystem_list,
+  Hash   $filesystem_mounts
 
 ){
 
@@ -39,15 +39,6 @@ class cis::setup::set_1_1 (
     owner     => root,
     group     => root,
     mode      => '0600',
-    noop      => $run,
-  }
-
-  # 1.1.6
-  mount {'/var/tmp':
-    ensure    => 'mounted',
-    device    => '/tmp',
-    fstype    => 'none',
-    options   => 'bind',
     noop      => $run,
   }
 
