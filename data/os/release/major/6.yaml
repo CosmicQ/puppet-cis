@@ -1,0 +1,5 @@
+---
+cis::setup::set_1_4::grub_files:
+  '/boot/grub':           { ensure => directory, mode => '0755' }
+  '/boot/grub/grub.conf': { ensure => file,      mode => '0600' }
+  '/etc/sysconfig/grub':  { ensure => file,      mode => '0644' }

@@ -1,6 +1,7 @@
 class cis::setup::set_1_4 (
 
-  String $status            = 'disable',
+  String $status   = 'disable',
+  Hash $grub_files
 
 ){
 
@@ -14,6 +15,14 @@ class cis::setup::set_1_4 (
     'enable'  => false,
     default   => true,
   }
+
+  $defaults = {
+    owner => '0',
+    group => '0',
+    noop  => ${run},
+  }
+
+  create_resources(file, $grub_files, $defaults)
 
 # RH6
   file { '/etc/sysconfig/grub':
@@ -37,16 +46,6 @@ class cis::setup::set_1_4 (
     mode   => '0600',
     noop   => $run,
   }
-
-# RH7
-
-/etc/sysconfig/grub
-/etc/default/grub
-/etc/grub.d
-/etc/grub2.cfg
-
-/boot/grub2 (0700)
-/boot/grub2/grub.cfg
 
 ## Setting below is needed for CIS compliance
 GRUB_CMDLINE_LINUX_DEFAULT="audit=1 selinux=1 enforcing=1"

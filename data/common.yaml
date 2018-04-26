@@ -53,41 +53,53 @@ cis::setup::set_1_1::filesystem_list:
   - 'vfat'
 
 cis::setup::set_1_1::filesystem_mounts:
-  '/tmp': 'nodev,nosuid,noexec'
-  '/var': 'nodev'
-  '/var/log': 'nodev'
+  '/tmp':           'nodev,nosuid,noexec'
+  '/var':           'nodev'
+  '/var/log':       'nodev'
   '/var/log/audit': 'nodev'
-  '/home': 'nodev'
-  '/opt': 'nodev'
-  '/dev/shm': 'nodev,nosuid,noexec'
+  '/home':          'nodev'
+  '/opt':           'nodev'
+  '/dev/shm':       'nodev,nosuid,noexec'
+
+# Aide
+cis::setup::set_1_2::aide_cron:
+  hour: 4
+  minute: 15  
+
+# Grub
+cis::setup::set_1_4::grub_files:
+  '/etc/grub.d':          { ensure => directory, mode => '0700' }
+  '/boot/grub2':          { ensure => directory, mode => '0700' }
+  '/boot/grub2/grub.cfg': { ensure => file,      mode => '0600' } # CIS calls out /etc/grub2.cfg, but that is a symlink to here.
+  '/etc/default/grub':    { ensure => file,      mode => '0600' }
 
 ##########################################################
 # Network
 cis::network::net_3_1::kernel_parameters:
-  'net.ipv4.ip_forward': '0'
-  'net.ipv4.conf.all.send_redirects': '0'
-  'net.ipv4.conf.default.send_redirects': '0'
+  'net.ipv4.ip_forward':                        '0'
+  'net.ipv4.conf.all.send_redirects':           '0'
+  'net.ipv4.conf.default.send_redirects':       '0'
 
 cis::network::net_3_2::kernel_parameters:
-  'net.ipv4.conf.all.accept_source_route': '0'
-  'net.ipv4.conf.default.accept_source_route': '0'
-  'net.ipv4.conf.all.accept_redirects': '0'
-  'net.ipv4.conf.default.accept_redirects': '0'
-  'net.ipv4.conf.all.secure_redirects': '0',
-  'net.ipv4.conf.default.secure_redirects': '0'
-  'net.ipv4.conf.all.log_martians': '1'
-  'net.ipv4.conf.default.log_martians': '1'
-  'net.ipv4.icmp_echo_ignore_broadcasts': '1'
+  'net.ipv4.conf.all.accept_source_route':      '0'
+  'net.ipv4.conf.default.accept_source_route':  '0'
+  'net.ipv4.conf.all.accept_redirects':         '0'
+  'net.ipv4.conf.default.accept_redirects':     '0'
+  'net.ipv4.conf.all.secure_redirects':         '0'
+  'net.ipv4.conf.default.secure_redirects':     '0'
+  'net.ipv4.conf.all.log_martians':             '1'
+  'net.ipv4.conf.default.log_martians':         '1'
+  'net.ipv4.icmp_echo_ignore_broadcasts':       '1'
   'net.ipv4.icmp_ignore_bogus_error_responses': '1'
-  'net.ipv4.conf.all.rp_filter': '1'
-  'net.ipv4.conf.default.rp_filter': '1'
-  'net.ipv4.tcp_syncookies': '1'
+  'net.ipv4.conf.all.rp_filter':                '1'
+  'net.ipv4.conf.default.rp_filter':            '1'
+  'net.ipv4.tcp_syncookies':                    '1'
 
 cis::network::net_3_3::kernel_parameters:
-  'net.ipv6.conf.all.accept_ra': '0'
-  'net.ipv6.conf.default.accept_ra': '0'
-  'net.ipv6.conf.all.accept_redirects': '0'
-  'net.ipv6.conf.default.accept_redirects': '0'
+  'net.ipv6.conf.all.accept_ra':                '0'
+  'net.ipv6.conf.default.accept_ra':            '0'
+  'net.ipv6.conf.all.accept_redirects':         '0'
+  'net.ipv6.conf.default.accept_redirects':     '0'
 
 cis::network::net_3_5::protocol_list:
   - 'dccp'
