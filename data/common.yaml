@@ -68,10 +68,10 @@ cis::setup::set_1_3::aide_cron:
 
 # Grub
 cis::setup::set_1_4::grub_files:
-  '/etc/grub.d':          { ensure => directory, mode => '0700' }
-  '/boot/grub2':          { ensure => directory, mode => '0700' }
-  '/boot/grub2/grub.cfg': { ensure => file,      mode => '0600' } # CIS calls out /etc/grub2.cfg, but that is a symlink to here.
-  '/etc/default/grub':    { ensure => file,      mode => '0600' }
+  '/etc/grub.d':          { ensure: 'directory', mode: '0700' }
+  '/boot/grub2':          { ensure: 'directory', mode: '0700' }
+  '/boot/grub2/grub.cfg': { ensure: 'file',      mode: '0600' } # CIS calls out /etc/grub2.cfg, but that is a symlink to here.
+  '/etc/default/grub':    { ensure: 'file',      mode: '0600' }
 
 # Grub password defaults to 'foo'.  Change this in hiera.  NOW
 # Get your hashes:
