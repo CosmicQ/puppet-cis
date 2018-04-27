@@ -2,7 +2,8 @@ class cis::setup::set_1_4 (
 
   String $status   = 'disable',
   Hash $grub_files,
-  String $grub_pass,
+  String $grub_pass
+  
 ){
 
   $check = $status ? {
