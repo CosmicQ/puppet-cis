@@ -62,7 +62,7 @@ cis::setup::set_1_1::filesystem_mounts:
   '/dev/shm':       'nodev,nosuid,noexec'
 
 # Aide
-cis::setup::set_1_2::aide_cron:
+cis::setup::set_1_3::aide_cron:
   hour: 4
   minute: 15  
 
