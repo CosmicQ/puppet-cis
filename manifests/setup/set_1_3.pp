@@ -2,7 +2,7 @@ class cis::setup::set_1_3 (
 
   String $status            = 'disable',
   Array  $filesystem_list,
-  Hash   $filesystem_mounts
+  Hash   $filesystem_mounts,
   Hash   $aide_cron
 
 ){

@@ -3,3 +3,8 @@ cis::setup::set_1_4::grub_files:
   '/boot/grub':           { ensure => directory, mode => '0755' }
   '/boot/grub/grub.conf': { ensure => file,      mode => '0600' }
   '/etc/sysconfig/grub':  { ensure => file,      mode => '0644' }
+
+# Grub password defaults to 'foo'.  Change this in hiera.  NOW
+# Get your hashes:
+# RH6 - 'grub-md5-crypt'
+cis::setup::set_1_4::grub_pass: '$1$xuW7q/$LV0V4zlhcxe4G9D4t9Ow/.'
