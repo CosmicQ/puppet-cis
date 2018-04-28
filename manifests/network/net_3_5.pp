@@ -1,6 +1,6 @@
 class cis::network::net_3_5 (
 
-  String,
+  String $status,
   Array $protocol_list
 
 ){
