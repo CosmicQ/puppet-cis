@@ -25,3 +25,4 @@ class cis::services::srv_2_3 (
       }
     }
   }
+}
