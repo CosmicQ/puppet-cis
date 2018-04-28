@@ -84,8 +84,8 @@ cis::setup::set_1_5::kernel_parameters:
 
 ##########################################################
 # Services
-cis::services::srv_2_1::xinetd_services:
 # Stop inetd services
+cis::services::srv_2_1::xinetd_services:
   - chargen-dgram
   - chargen-stream
   - daytime-dgram
@@ -105,8 +105,8 @@ cis::services::srv_2_1::xinetd_services:
   - rsync
   - xinetd
 
-cis::services::srv_2_2::special_services:
 # Stop common services
+cis::services::srv_2_2::special_services:
   - avahi-daemon
   - cups
   - dhcpd
@@ -120,11 +120,11 @@ cis::services::srv_2_2::special_services:
   - smb
   - squid
   - snmpd
-# 2.2.15 ensure postfix is localhost only
   - ypserv
+# 2.2.15 ensure postfix is localhost only
 
-cis::services::srv_2_3::service_clients:
 # Remove client packages
+cis::services::srv_2_3::service_clients:
   - ypbind
   - rsh
   - talk
