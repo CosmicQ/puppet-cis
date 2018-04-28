@@ -24,7 +24,7 @@ class cis::setup::set_1_3 (
 
     exec { 'initialize_aide':
       command => '/usr/sbin/aide --init',
-      creates => '/var/lib/aide/aide.db.gz',
+      creates => '/var/lib/aide/aide.db.new.gz',
       require => Package['aide'],
       noop    => $run,
     }
