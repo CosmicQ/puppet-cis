@@ -83,6 +83,55 @@ cis::setup::set_1_5::kernel_parameters:
   'kernel.randomize_va_space':                  '2'
 
 ##########################################################
+# Services
+cis::services::srv_2_1::xinetd_services:
+# Stop inetd services
+  - chargen-dgram
+  - chargen-stream
+  - daytime-dgram
+  - daytime-stream
+  - discard-dgram
+  - discard-stream
+  - echo-dgram
+  - echo-stream
+  - time-dgram
+  - time-stream
+  - rexec
+  - rlogin
+  - rsh
+  - talk
+  - telnet
+  - tftp
+  - rsync
+  - xinetd
+
+cis::services::srv_2_2::special_services:
+# Stop common services
+  - avahi-daemon
+  - cups
+  - dhcpd
+  - slapd
+  - nfs
+  - rpcbind
+  - named
+  - vsftpd
+  - httpd
+  - dovecot
+  - smb
+  - squid
+  - snmpd
+# 2.2.15 ensure postfix is localhost only
+  - ypserv
+
+cis::services::srv_2_3::service_clients:
+# Remove client packages
+  - ypbind
+  - rsh
+  - talk
+  - telnet
+  - openldap-clients
+
+##########################################################
 # Network
 cis::network::net_3_1::kernel_parameters:
   'net.ipv4.ip_forward':                        '0'
