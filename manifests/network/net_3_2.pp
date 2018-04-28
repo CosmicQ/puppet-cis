@@ -23,7 +23,6 @@ class cis::network::net_3_2 (
         ensure  => present,
         value   => "${val}",
         target  => "/etc/sysctl.d/${k_param}.conf",
-        comment => 'Setting managed by Puppet',
         noop    => $run,
       }
     }

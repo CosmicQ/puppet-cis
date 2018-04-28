@@ -59,7 +59,7 @@ cis::setup::set_1_1::filesystem_mounts:
   '/var/log/audit': { options: 'nodev' }
   '/home':          { options: 'nodev' }
   '/opt':           { options: 'nodev' }
-  '/dev/shm':       { options: 'nodev,nosuid,noexec', fstype: 'tmpfs' }
+  'shm':            { options: 'nodev,nosuid,noexec', fstype: 'tmpfs', device: '/dev/shm' }
 
 # Aide
 cis::setup::set_1_3::aide_cron:
