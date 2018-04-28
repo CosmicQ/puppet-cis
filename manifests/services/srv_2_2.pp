@@ -19,7 +19,6 @@ class cis::services::srv_2_2 (
 # NTP is handeled via puppet/ntp
 
   if $check {
-    # 3.1.1
     $special_services.each |String $special_service| {
       service { "${special_service}":
         ensure  => stopped,

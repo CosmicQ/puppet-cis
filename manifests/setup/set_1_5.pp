@@ -16,18 +16,20 @@ class cis::setup::set_1_5 (
     default   => true,
   }
 
-  $kernel_parameters.each |String $k_param, String $val| {
-    sysctl { "${k_param}":
-      ensure  => present,
-      value   => "${val}",
-      target  => "/etc/sysctl.d/${k_param}.conf",
-      comment => 'Setting managed by Puppet',
-      noop    => $run,
+  if $check {
+
+    $kernel_parameters.each |String $k_param, String $val| {
+      sysctl { "${k_param}":
+        ensure  => present,
+        value   => "${val}",
+        target  => "/etc/sysctl.d/${k_param}.conf",
+        comment => 'Setting managed by Puppet',
+        noop    => $run,
+      }
+    }
+
+    package { 'prelink':
+      ensure => purged,
     }
   }
-
-  package { 'prelink':
-    ensure => purged,
-  }
-
 }
