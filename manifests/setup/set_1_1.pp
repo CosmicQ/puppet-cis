@@ -1,6 +1,6 @@
 class cis::setup::set_1_1 (
 
-  String $status            = 'disable',
+  String $status,
   Array  $filesystem_list,
   Hash   $filesystem_mounts
 

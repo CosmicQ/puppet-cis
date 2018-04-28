@@ -1,6 +1,6 @@
 class cis::setup::set_1_3 (
 
-  String $status            = 'disable',
+  String $status,
   Hash   $aide_cron
 
 ){

@@ -1,6 +1,6 @@
 class cis::services::srv_2_1 (
 
-  String $status            = 'disable',
+  String $status,
   Array $xinetd_services
 
 ){

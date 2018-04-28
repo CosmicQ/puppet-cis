@@ -1,6 +1,6 @@
 class cis::network::net_3_6 (
 
-  String $status = 'disable'
+  String $status
 
 ){
 

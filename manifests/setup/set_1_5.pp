@@ -1,6 +1,6 @@
 class cis::setup::set_1_5 (
 
-  String $status   = 'disable',
+  String $status,
   Hash   $kernel_parameters
 
 ){

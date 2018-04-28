@@ -1,6 +1,6 @@
 class cis::setup::set_1_2 (
 
-  String $status            = 'disable',
+  String $status,
 
 ){
 

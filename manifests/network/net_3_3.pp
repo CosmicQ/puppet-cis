@@ -1,6 +1,6 @@
 class cis::network::net_3_3 (
 
-  String $status = 'disable',
+  String $status,
   Hash   $kernel_parameters
 
 ){

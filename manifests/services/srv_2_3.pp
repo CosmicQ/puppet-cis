@@ -1,6 +1,6 @@
 class cis::services::srv_2_3 (
 
-  String $status            = 'disable',
+  String $status,
   Array $service_clients,
 
 ){
