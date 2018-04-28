@@ -2,18 +2,18 @@
 # "Status" values are: 'enable', 'notify', 'disable'
 
 # Section 1 - Initial Setup
-cis::setup::set_1_1: 'notify'
-cis::setup::set_1_2: 'notify'
-cis::setup::set_1_3: 'notify'
-cis::setup::set_1_4: 'notify'
-cis::setup::set_1_5: 'notify'
-cis::setup::set_1_7: 'notify'
-cis::setup::set_1_8: 'notify'
+cis::setup::set_1_1::status: 'notify'
+cis::setup::set_1_2::status: 'notify'
+cis::setup::set_1_3::status: 'notify'
+cis::setup::set_1_4::status: 'notify'
+cis::setup::set_1_5::status: 'notify'
+cis::setup::set_1_7::status: 'notify'
+cis::setup::set_1_8::status: 'notify'
 
 # Section 2 - Services
-cis::services::srv_2_1: 'notify'
-cis::services::srv_2_2: 'notify'
-cis::services::srv_2_3: 'notify'
+cis::services::srv_2_1::status: 'notify'
+cis::services::srv_2_2::status: 'notify'
+cis::services::srv_2_3::status: 'notify'
 
 # Section 3 - Network Configuration
 cis::network::net_3_1::status: 'notify'
