@@ -53,13 +53,13 @@ cis::setup::set_1_1::filesystem_list:
   - 'vfat'
 
 cis::setup::set_1_1::filesystem_mounts:
-  '/tmp':           'nodev,nosuid,noexec'
-  '/var':           'nodev'
-  '/var/log':       'nodev'
-  '/var/log/audit': 'nodev'
-  '/home':          'nodev'
-  '/opt':           'nodev'
-  '/dev/shm':       'nodev,nosuid,noexec'
+  '/tmp':           { options: 'nodev,nosuid,noexec' }
+  '/var':           { options: 'nodev' }
+  '/var/log':       { options: 'nodev' }
+  '/var/log/audit': { options: 'nodev' }
+  '/home':          { options: 'nodev' }
+  '/opt':           { options: 'nodev' }
+  '/dev/shm':       { options: 'nodev,nosuid,noexec', fstype: 'tmpfs' }
 
 # Aide
 cis::setup::set_1_3::aide_cron:

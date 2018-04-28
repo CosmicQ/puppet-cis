@@ -17,6 +17,10 @@ class cis::setup::set_1_1 (
     default   => true,
   }
 
+  $defaults = {
+    noop  => $run,
+  }
+
   if $check {
   # Filesystem List is found in data/setup.yaml
     $filesystem_list.each | String $filesystem | {
@@ -29,12 +33,7 @@ class cis::setup::set_1_1 (
     }
   
   # Filesystem Mounts are found in data/setup.yaml
-    $filesystem_mounts.each | String $mount, String $options | {
-      mount { $mount:
-        options => $options,
-        noop    => $run,
-      }
-    }
+    create_resources(mount, $filesystem_mounts, $defaults)
 
     file {'/etc/fstab':
       owner     => root,
