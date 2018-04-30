@@ -1,3 +1,4 @@
+# Network Parameters (Host Only)
 class cis::network::net_3_1 (
 
   String $status,

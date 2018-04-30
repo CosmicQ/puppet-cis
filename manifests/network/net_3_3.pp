@@ -1,3 +1,4 @@
+# IPv6
 class cis::network::net_3_3 (
 
   String $status,

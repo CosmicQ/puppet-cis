@@ -1,3 +1,4 @@
+# Special Purpose Services
 class cis::services::srv_2_2 (
 
   String $status,

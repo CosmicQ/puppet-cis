@@ -1,3 +1,4 @@
+# inetd Services
 class cis::services::srv_2_1 (
 
   String $status,

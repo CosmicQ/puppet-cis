@@ -1,3 +1,4 @@
+# Ensure wireless interfaces are disabled
 class cis::network::net_3_7 (
 
   String $status

@@ -1,3 +1,4 @@
+# Network Parameters (Host and Router)
 class cis::network::net_3_2 (
 
   String $status,

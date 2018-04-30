@@ -1,3 +1,4 @@
+# Configure Software Updates
 class cis::setup::set_1_2 (
 
   String $status,

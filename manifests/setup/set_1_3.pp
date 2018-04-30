@@ -1,3 +1,4 @@
+# Filesystem Integrity Checking
 class cis::setup::set_1_3 (
 
   String $status,

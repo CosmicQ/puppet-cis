@@ -1,5 +1,5 @@
-# SSH Server Configuration
-class cis::access::aaa_5_2 (
+# Ensure logrotate is configured
+class cis::loging::log_4_3 (
 
   String $status,
 

@@ -1,3 +1,4 @@
+# Secure Boot Settings
 class cis::setup::set_1_4 (
 
   String $status,

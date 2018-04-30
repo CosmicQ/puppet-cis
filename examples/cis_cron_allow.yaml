@@ -1,0 +1,5 @@
+---
+cis_cron_allow:
+  - root
+  - user1
+  - user2

@@ -164,3 +164,13 @@ cis::network::net_3_5::protocol_list:
   - 'sctp'
   - 'rds'
   - 'tipc'
+
+cis::access::aaa_5_1::cron_package: 'cronie'
+cis::access::aaa_5_1::cron_service: 'crond'
+cis::access::aaa_5_1::cron_files:
+  '/etc/crontab':      { ensure: 'file',      mode: '0600' }
+  '/etc/cron.hourly':  { ensure: 'file',      mode: '0600' }
+  '/etc/cron.daily':   { ensure: 'file',      mode: '0600' }
+  '/etc/cron.weekly':  { ensure: 'file',      mode: '0600' }
+  '/etc/cron.monthly': { ensure: 'file',      mode: '0600' }
+  '/etc/cron.d':       { ensure: 'directory', mode: '0700' }

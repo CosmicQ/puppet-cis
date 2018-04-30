@@ -1,0 +1,5 @@
+---
+cis_firewall:
+  ssh:  { proto: 'tcp', dport: 22, action: 'accept' }
+  http: { proto: 'tcp', dport: [80, 443], action: 'accept' }
+  ntp:  { proto: 'udp', dport: 123, action: 'accept' }
