@@ -16,9 +16,9 @@ class cis::loging::log_4_2 (
     default  => true,
   }
 
-  if $check {
+#  if $check {
 
 
 
-  }
+#  }
 }

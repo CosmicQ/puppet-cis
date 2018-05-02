@@ -16,7 +16,7 @@ class cis::system::sys_6_1 (
     default  => true,
   }
 
-  if $check {
+  #if $check {
 
     # 6.1.2
     # chown root:root /etc/passwd
@@ -56,5 +56,5 @@ class cis::system::sys_6_1 (
     # 6.1.13 Audit SUID executables 
     # 6.1.14 Audit SGID executables
 
-  }
+  #}
 }

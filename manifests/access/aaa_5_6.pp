@@ -16,10 +16,10 @@ class cis::access::aaa_5_6 (
     default  => true,
   }
 
-  if $check {
+#  if $check {
 
 # grep pam_wheel.so /etc/pam.d/su
-auth required pam_wheel.so use_uid
+#auth required pam_wheel.so use_uid
 
-  }
+#  }
 }

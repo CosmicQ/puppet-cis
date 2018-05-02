@@ -16,7 +16,7 @@ class cis::system::sys_6_2 (
     default  => true,
   }
 
-  if $check {
+#  if $check {
 
     # 6.2.2 Ensure no legacy "+" entries exist in /etc/passwd
     # 6.2.3 Ensure no legacy "+" entries exist in /etc/shadow
@@ -37,5 +37,5 @@ class cis::system::sys_6_2 (
     # 6.2.18 Ensure no duplicate user names exist
     # 6.2.19 Ensure no duplicate group names exist
 
-  }
+#  }
 }

@@ -24,7 +24,7 @@ class cis::access::aaa_5_3 (
       #RH6
       file_line { 'pam_pwquality':
           ensure  => present,
-          path    => '/etc/pam.d/system-auth'
+          path    => '/etc/pam.d/system-auth',
           line    => "password\trequisite\tpam_cracklib.so try_first_pass retry=3 minlen=${pwquality[minlen]} dcredit=${pwquality[dcredit]} ucredit=${pwquality[ucredit]} ocredit=${pwquality[ocredit]} lcredit=${pwquality[lcredit]}",
           match   => "^password\s+requisite\s+pam_cracklib.so",
           noop    => $run,      
@@ -34,11 +34,12 @@ class cis::access::aaa_5_3 (
       $pwquality.each | String $param, String $val | {
         file_line { 'pam_pwquality':
             ensure  => present,
-            path    => '/etc/security/pwquality.conf'
+            path    => '/etc/security/pwquality.conf',
             line    => "${param}=${val}",
             match   => "^${param}=",
             noop    => $run,      
         }
+      }
     }
 
     # 5.3.2, 5.3.3, 5.3.4
@@ -59,20 +60,15 @@ class cis::access::aaa_5_3 (
 #      noop    => $run,      
 #    }
 
-
-
-  }
-}
-
-
-
-
     $sshd_config.each | String $param, String $val | {
       file_line { $param:
         ensure  => present,
-        path    => '/etc/ssh/sshd_config'
+        path    => '/etc/ssh/sshd_config',
         line    => "${param} ${val}",
         match   => "^${param}",
         noop    => $run,
       }
     }
+
+  }
+}

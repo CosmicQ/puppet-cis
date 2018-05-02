@@ -31,7 +31,7 @@ class cis::access::aaa_5_2 (
     $sshd_config.each | String $param, String $val | {
       file_line { $param:
         ensure  => present,
-        path    => '/etc/ssh/sshd_config'
+        path    => '/etc/ssh/sshd_config',
         line    => "${param} ${val}",
         match   => "^${param}",
         noop    => $run,
