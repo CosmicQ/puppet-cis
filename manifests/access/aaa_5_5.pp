@@ -18,7 +18,10 @@ class cis::access::aaa_5_5 (
 
   if $check {
 
-
+    # 5.5 - 
+# cat /etc/securetty
+Remediation:
+Remove entries for any consoles that are not in a physically secure location
 
   }
 }

@@ -3,7 +3,8 @@ class cis::setup::set_1_1 (
 
   String $status,
   Array  $filesystem_list,
-  Hash   $filesystem_mounts
+  Hash   $filesystem_mounts,
+  Hash   $autofs
 
 ){
 
@@ -23,7 +24,7 @@ class cis::setup::set_1_1 (
   }
 
   if $check {
-  # Filesystem List is found in data/setup.yaml
+    # 1.1.1.1-8
     $filesystem_list.each | String $filesystem | {
       file_line { $filesystem:
         ensure  => present,
@@ -33,7 +34,8 @@ class cis::setup::set_1_1 (
       }
     }
   
-  # Filesystem Mounts are found in data/setup.yaml
+    # 1.1.3-1.1.20
+    # This skips the 'level 2' items for now.
     create_resources(mount, $filesystem_mounts, $defaults)
 
     file {'/etc/fstab':
@@ -43,6 +45,8 @@ class cis::setup::set_1_1 (
       noop      => $run,
     }
 
+    # 1.1.21 - Ensure sticky bit is set on all world-writable directories
+    # We control /tmp.  Other directories will need to be detected via audit
     file {'/tmp':
       ensure    => directory,
       owner     => root,
@@ -50,5 +54,13 @@ class cis::setup::set_1_1 (
       mode      => '1777',
       noop      => $run,
     }
+
+    # 1.1.22 - Disable Automounting
+    service { 'cis_autofs':
+      ensure    => $autofs[ensure],
+      name      => $autofs[name],
+      enable    => $autofs[enable],
+    }
+
   }
 }

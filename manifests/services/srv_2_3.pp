@@ -18,6 +18,7 @@ class cis::services::srv_2_3 (
   }
 
   if $check {
+    # 2.3.1-5
     $service_clients.each |String $service_client| {
       package { "${service_client}":
         ensure  => purged,

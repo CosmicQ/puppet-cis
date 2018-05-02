@@ -61,6 +61,12 @@ cis::setup::set_1_1::filesystem_mounts:
   '/opt':           { options: 'nodev' }
   'shm':            { options: 'nodev,nosuid,noexec', fstype: 'tmpfs', device: '/dev/shm' }
 
+# CIS wants autofs off by default so USB and CDROMs can't be mounted on the server.
+# If you need NFS automounting, you will need to change these values (running, true).
+# Just make sure you remove auto.misc configs.
+cis::setup::set_1_1::autofs:
+  autofs:           { ensure: 'stopped', enable: 'false' }
+
 # Aide
 cis::setup::set_1_3::aide_cron:
   hour: 4
@@ -167,6 +173,8 @@ cis::network::net_3_5::protocol_list:
 
 cis::access::aaa_5_1::cron_package: 'cronie'
 cis::access::aaa_5_1::cron_service: 'crond'
+cis::access::aaa_5_1::cron_allow:
+  - root
 cis::access::aaa_5_1::cron_files:
   '/etc/crontab':      { ensure: 'file',      mode: '0600' }
   '/etc/cron.hourly':  { ensure: 'file',      mode: '0600' }
@@ -174,3 +182,28 @@ cis::access::aaa_5_1::cron_files:
   '/etc/cron.weekly':  { ensure: 'file',      mode: '0600' }
   '/etc/cron.monthly': { ensure: 'file',      mode: '0600' }
   '/etc/cron.d':       { ensure: 'directory', mode: '0700' }
+
+cis::access::aaa_5_2::sshd_config:
+  Protocol:                '2'
+  LogLevel:                'INFO'
+  X11Forwarding:           'no'
+  MaxAuthTries:            '4'
+  IgnoreRhosts:            'yes'
+  HostbasedAuthentication: 'no'
+  PermitRootLogin:         'no'
+  PermitEmptyPasswords:    'no'
+  PermitUserEnvironment:   'no'
+  Ciphers:                 'aes256-ctr,aes192-ctr,aes128-ctr'
+  MACs:                    'hmac-sha2-512,hmac-sha2-256'
+  ClientAliveInterval:     '300'
+  ClientAliveCountMax:     '0'
+  LoginGraceTime:          '60'
+  DenyUsers:               'root'
+  Banner:                  '/etc/issue.net'
+
+cis::access::aaa_5_3::pwquality:
+  minlen:                  '14'
+  dcredit:                 '-1'
+  ucredit:                 '-1'
+  ocredit:                 '-1'
+  lcredit:                 '-1'

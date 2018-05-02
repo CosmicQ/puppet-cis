@@ -18,11 +18,12 @@ class cis::setup::set_1_3 (
   }
 
   if $check {
+
+    # 1.3.1 - Ensure AIDE is installed
     package {'aide':
       ensure => installed,
       noop   => $run,
     }
-
     exec { 'initialize_aide':
       command => '/usr/sbin/aide --init',
       creates => '/var/lib/aide/aide.db.new.gz',
@@ -30,6 +31,7 @@ class cis::setup::set_1_3 (
       noop    => $run,
     }
 
+    # 1.3.2 - Ensure filesystem integrity is regularly checked
     cron { 'aide-check':
       command => '/usr/sbin/aide --check',
       user    => root,
