@@ -56,10 +56,6 @@ class cis::linux::setup::set_1_1 (
     }
 
     # 1.1.22 - Disable Automounting
-    notify { 'cis_autofs_notify':
-      message => "DEBUG: ${autofs['ensure']} - ${autofs['name']} - ${autofs['enable']}",
-    }
-    
     service { 'cis_autofs':
       ensure    => $autofs['ensure'],
       name      => $autofs['name'],
