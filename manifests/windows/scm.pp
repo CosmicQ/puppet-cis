@@ -16,10 +16,6 @@ class cis::windows::scm   (
     default   => true,
   }
 
-  $defaults = {
-    noop  => $run,
-  }
-
   if $check {
 
     # This is all registry crap.  We can do this with hiera and a sweet function.
@@ -30,6 +26,7 @@ class cis::windows::scm   (
         dsc_valuename => $values[valuename],
         dsc_valuetype => $values[valuetype],
         dsc_valuedata => $values[valuedata],
+        noop          => $run,
       }
     }
 
