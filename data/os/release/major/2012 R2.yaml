@@ -1,6 +1,6 @@
 ---
 # SCM Mods - Per Microsoft
-cis::windows::ws2012r2_member_server:
+cis::windows::scm::scm_registry:
   jre8_javaws:
     key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
     valuename: 'jre8_javaws'
