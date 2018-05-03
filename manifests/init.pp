@@ -49,7 +49,7 @@ class cis {
   }elsif $facts['kernel'] == 'windows' {
     include cis::windows
   }else{
-    fail{ "${facts[kernel]} is unsupported" }
+    fail( "${facts[kernel]} is unsupported" )
   }
   
 }
