@@ -42,29 +42,14 @@
 #
 # Copyright 2018 Your name here, unless otherwise noted.
 #
-class cis (
+class cis 
 
-
-){
-
-  file { '/etc/modprobe.d':
-    ensure => directory,
-    mode   => '0755',
-    owner  => 'root',
-    group  => 'root',
+  if $facts['kernel'] == 'Linux' {
+    include cis::linux
+  }elsif $facts['kernel'] == 'windows' {
+    include cis::windows
+  }else{
+    fail{ "${facts[kernel]} is unsupported" }
   }
-
-  file { '/etc/modprobe.d/CIS.conf' :
-    ensure  => file,
-    mode    => '0600',
-    owner   => 'root',
-    group   => 'root',
-    require => File['/etc/modprobe.d'],
-  }
-
-  # 3 - Network Configuration
-  include cis::setup
-  include cis::services
-  include cis::network
-
+  
 }
