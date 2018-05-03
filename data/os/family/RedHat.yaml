@@ -1,0 +1,209 @@
+---
+# "Status" values are: 'enable', 'notify', 'disable'
+
+# Section 1 - Initial Setup
+cis::setup::set_1_1::status: 'notify'
+cis::setup::set_1_2::status: 'notify'
+cis::setup::set_1_3::status: 'notify'
+cis::setup::set_1_4::status: 'notify'
+cis::setup::set_1_5::status: 'notify'
+cis::setup::set_1_7::status: 'notify'
+cis::setup::set_1_8::status: 'notify'
+
+# Section 2 - Services
+cis::services::srv_2_1::status: 'notify'
+cis::services::srv_2_2::status: 'notify'
+cis::services::srv_2_3::status: 'notify'
+
+# Section 3 - Network Configuration
+cis::network::net_3_1::status: 'notify'
+cis::network::net_3_2::status: 'notify'
+cis::network::net_3_3::status: 'notify'
+cis::network::net_3_4::status: 'notify'
+cis::network::net_3_5::status: 'notify'
+cis::network::net_3_6::status: 'notify'
+cis::network::net_3_7::status: 'notify'
+
+# Section 4 - Logging and Auditing
+cis::logging::log_4_1::status: 'notify'
+cis::logging::log_4_2::status: 'notify'
+
+# Section 5 - Access, Authentication and Authorization
+cis::access::aaa_5_1::status: 'notify'
+cis::access::aaa_5_2::status: 'notify'
+cis::access::aaa_5_3::status: 'notify'
+cis::access::aaa_5_4::status: 'notify'
+cis::access::aaa_5_5::status: 'notify'
+cis::access::aaa_5_6::status: 'notify'
+
+# Section 6 - System Maintenance
+cis::system::sys_6_1::status: 'notify'
+cis::system::sys_6_2::status: 'notify'
+
+##########################################################
+# Setup
+cis::setup::set_1_1::filesystem_list:
+  - 'cramfs'
+  - 'freevxfs'
+  - 'jffs2'
+  - 'hfs'
+  - 'hfsplus'
+  - 'squashfs'
+  - 'udf'
+  - 'vfat'
+
+cis::setup::set_1_1::filesystem_mounts:
+  '/tmp':           { options: 'nodev,nosuid,noexec' }
+  '/var':           { options: 'nodev' }
+  '/var/log':       { options: 'nodev' }
+  '/var/log/audit': { options: 'nodev' }
+  '/home':          { options: 'nodev' }
+  '/opt':           { options: 'nodev' }
+  'shm':            { options: 'nodev,nosuid,noexec', fstype: 'tmpfs', device: '/dev/shm' }
+
+# CIS wants autofs off by default so USB and CDROMs can't be mounted on the server.
+# If you need NFS automounting, you will need to change these values (running, true).
+# Just make sure you remove auto.misc configs.
+cis::setup::set_1_1::autofs:
+  autofs:           { ensure: 'stopped', enable: 'false' }
+
+# Aide
+cis::setup::set_1_3::aide_cron:
+  hour: 4
+  minute: 15  
+
+# Grub
+cis::setup::set_1_4::grub_files:
+  '/etc/grub.d':          { ensure: 'directory', mode: '0700' }
+  '/boot/grub2':          { ensure: 'directory', mode: '0700' }
+  '/boot/grub2/grub.cfg': { ensure: 'file',      mode: '0600' } # CIS calls out /etc/grub2.cfg, but that is a symlink to here.
+  '/etc/default/grub':    { ensure: 'file',      mode: '0600' }
+
+# Grub password defaults to 'foo'.  Change this in hiera.  NOW
+# Get your hashes:
+# RH7 - 'grub2-mkpasswd-pbkdf2'
+cis::setup::set_1_4::grub_pass: 'grub.pbkdf2.sha512.10000.77B5F4D5C1F77F39451A13E06E5717CBC413204FB9EA534839E6353CA9EDD18577F0CAB4EB406D10CD80B451D4430E99318A70CA3699225FA2C9F96609A2CE95.3A89B0D5221F71E5F9BB36670E313D0BF1757B9F0C343CBD32E946E7CB9F1580D56054F68AFFA752E4B8B3C952A9B751F1AC33F72267F3F05609EF8B7F1B3580'
+
+cis::setup::set_1_5::kernel_parameters:
+  'fs.suid_dumpable':                           '0'
+  'kernel.randomize_va_space':                  '2'
+
+##########################################################
+# Services
+# Stop inetd services
+cis::services::srv_2_1::xinetd_services:
+  - chargen-dgram
+  - chargen-stream
+  - daytime-dgram
+  - daytime-stream
+  - discard-dgram
+  - discard-stream
+  - echo-dgram
+  - echo-stream
+  - time-dgram
+  - time-stream
+  - rexec
+  - rlogin
+  - rsh
+  - talk
+  - telnet
+  - tftp
+  - rsync
+  - xinetd
+
+# Stop common services
+cis::services::srv_2_2::special_services:
+  - avahi-daemon
+  - cups
+  - dhcpd
+  - slapd
+  - nfs
+  - rpcbind
+  - named
+  - vsftpd
+  - httpd
+  - dovecot
+  - smb
+  - squid
+  - snmpd
+  - ypserv
+# 2.2.15 ensure postfix is localhost only
+
+# Remove client packages
+cis::services::srv_2_3::service_clients:
+  - ypbind
+  - rsh
+  - talk
+  - telnet
+  - openldap-clients
+
+##########################################################
+# Network
+cis::network::net_3_1::kernel_parameters:
+  'net.ipv4.ip_forward':                        '0'
+  'net.ipv4.conf.all.send_redirects':           '0'
+  'net.ipv4.conf.default.send_redirects':       '0'
+
+cis::network::net_3_2::kernel_parameters:
+  'net.ipv4.conf.all.accept_source_route':      '0'
+  'net.ipv4.conf.default.accept_source_route':  '0'
+  'net.ipv4.conf.all.accept_redirects':         '0'
+  'net.ipv4.conf.default.accept_redirects':     '0'
+  'net.ipv4.conf.all.secure_redirects':         '0'
+  'net.ipv4.conf.default.secure_redirects':     '0'
+  'net.ipv4.conf.all.log_martians':             '1'
+  'net.ipv4.conf.default.log_martians':         '1'
+  'net.ipv4.icmp_echo_ignore_broadcasts':       '1'
+  'net.ipv4.icmp_ignore_bogus_error_responses': '1'
+  'net.ipv4.conf.all.rp_filter':                '1'
+  'net.ipv4.conf.default.rp_filter':            '1'
+  'net.ipv4.tcp_syncookies':                    '1'
+
+cis::network::net_3_3::kernel_parameters:
+  'net.ipv6.conf.all.accept_ra':                '0'
+  'net.ipv6.conf.default.accept_ra':            '0'
+  'net.ipv6.conf.all.accept_redirects':         '0'
+  'net.ipv6.conf.default.accept_redirects':     '0'
+
+cis::network::net_3_5::protocol_list:
+  - 'dccp'
+  - 'sctp'
+  - 'rds'
+  - 'tipc'
+
+cis::access::aaa_5_1::cron_package: 'cronie'
+cis::access::aaa_5_1::cron_service: 'crond'
+cis::access::aaa_5_1::cron_allow:
+  - root
+cis::access::aaa_5_1::cron_files:
+  '/etc/crontab':      { ensure: 'file',      mode: '0600' }
+  '/etc/cron.hourly':  { ensure: 'file',      mode: '0600' }
+  '/etc/cron.daily':   { ensure: 'file',      mode: '0600' }
+  '/etc/cron.weekly':  { ensure: 'file',      mode: '0600' }
+  '/etc/cron.monthly': { ensure: 'file',      mode: '0600' }
+  '/etc/cron.d':       { ensure: 'directory', mode: '0700' }
+
+cis::access::aaa_5_2::sshd_config:
+  Protocol:                '2'
+  LogLevel:                'INFO'
+  X11Forwarding:           'no'
+  MaxAuthTries:            '4'
+  IgnoreRhosts:            'yes'
+  HostbasedAuthentication: 'no'
+  PermitRootLogin:         'no'
+  PermitEmptyPasswords:    'no'
+  PermitUserEnvironment:   'no'
+  Ciphers:                 'aes256-ctr,aes192-ctr,aes128-ctr'
+  MACs:                    'hmac-sha2-512,hmac-sha2-256'
+  ClientAliveInterval:     '300'
+  ClientAliveCountMax:     '0'
+  LoginGraceTime:          '60'
+  DenyUsers:               'root'
+  Banner:                  '/etc/issue.net'
+
+cis::access::aaa_5_3::pwquality:
+  minlen:                  '14'
+  dcredit:                 '-1'
+  ucredit:                 '-1'
+  ocredit:                 '-1'
+  lcredit:                 '-1'

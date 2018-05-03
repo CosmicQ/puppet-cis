@@ -1,0 +1,548 @@
+---
+# SCM Mods - Per Microsoft
+cis::windows::ws2012r2_member_server:
+  jre8_javaws:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'jre8_javaws'
+    valuetype: 'String'
+    valuedata: '*\Java\jre1.8*\bin\javaws.exe -HeapSpray'
+
+  jre8_javaw:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'jre8_javaw'
+    valuetype: 'String'
+    valuedata: '*\Java\jre1.8*\bin\javaw.exe -HeapSpray'
+
+  Picture Manager:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Picture Manager'
+    valuetype: 'String'
+    valuedata: '*\OFFICE1*\OIS.EXE'
+
+  Safari:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Safari'
+    valuetype: 'String'
+    valuedata: '*\Safari\Safari.exe'
+
+  RealPlayer:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'RealPlayer'
+    valuetype: 'String'
+    valuedata: '*\Real\RealPlayer\realplay.exe'
+
+  WinRARConsole:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'WinRARConsole'
+    valuetype: 'String'
+    valuedata: '*\WinRAR\rar.exe'
+
+  PowerPoint:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'PowerPoint'
+    valuetype: 'String'
+    valuedata: '*\OFFICE1*\POWERPNT.EXE'
+
+  SkyDrive:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'SkyDrive'
+    valuetype: 'String'
+    valuedata: '*\SkyDrive\SkyDrive.exe'
+
+  jre7_javaws:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'jre7_javaws'
+    valuetype: 'String'
+    valuedata: '*\Java\jre7\bin\javaws.exe -HeapSpray'
+
+  jre8_java:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'jre8_java'
+    valuetype: 'String'
+    valuedata: '*\Java\jre1.8*\bin\java.exe -HeapSpray'
+
+  Wordpad:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Wordpad'
+    valuetype: 'String'
+    valuedata: '*\Windows NT\Accessories\wordpad.exe'
+
+  InfoPath:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'InfoPath'
+    valuetype: 'String'
+    valuedata: '*\OFFICE1*\INFOPATH.EXE'
+
+  Access:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Access'
+    valuetype: 'String'
+    valuedata: '*\OFFICE1*\MSACCESS.EXE'
+
+  AcrobatReader:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'AcrobatReader'
+    valuetype: 'String'
+    valuedata: '*\Adobe\Reader*\Reader\AcroRd32.exe'
+
+  jre7_javaw:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'jre7_javaw'
+    valuetype: 'String'
+    valuedata: '*\Java\jre7\bin\javaw.exe -HeapSpray'
+
+  Acrobat:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Acrobat'
+    valuetype: 'String'
+    valuedata: '*\Adobe\Acrobat*\Acrobat\Acrobat.exe'
+
+  UnRAR:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'UnRAR'
+    valuetype: 'String'
+    valuedata: '*\WinRAR\unrar.exe'
+
+  7zGUI:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: '7zGUI'
+    valuetype: 'String'
+    valuedata: '*\7-Zip\7zG.exe -EAF'
+
+  GoogleTalk:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'GoogleTalk'
+    valuetype: 'String'
+    valuedata: '*\Google\Google Talk\googletalk.exe -DEP -SEHOP'
+
+  LyncCommunicator:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'LyncCommunicator'
+    valuetype: 'String'
+    valuedata: '*\Microsoft Lync\communicator.exe'
+
+  VLC:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'VLC'
+    valuetype: 'String'
+    valuedata: '*\VideoLAN\VLC\vlc.exe'
+
+  FoxitReader:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'FoxitReader'
+    valuetype: 'String'
+    valuedata: '*\Foxit Reader\Foxit Reader.exe'
+
+  Thunderbird:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Thunderbird'
+    valuetype: 'String'
+    valuedata: '*\Mozilla Thunderbird\thunderbird.exe'
+
+  iTunes:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'iTunes'
+    valuetype: 'String'
+    valuedata: '*\iTunes\iTunes.exe'
+
+  PhotoGallery:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'PhotoGallery'
+    valuetype: 'String'
+    valuedata: '*\Windows Live\Photo Gallery\WLXPhotoGallery.exe'
+
+  Photoshop:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Photoshop'
+    valuetype: 'String'
+    valuedata: '*\Adobe\Adobe Photoshop CS*\Photoshop.exe'
+
+  WinRARGUI:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'WinRARGUI'
+    valuetype: 'String'
+    valuedata: '*\WinRAR\winrar.exe'
+
+  WindowsLiveMail:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'WindowsLiveMail'
+    valuetype: 'String'
+    valuedata: '*\Windows Live\Mail\wlmail.exe'
+
+  WindowsMediaPlayer:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'WindowsMediaPlayer'
+    valuetype: 'String'
+    valuedata: '*\Windows Media Player\wmplayer.exe -SEHOP -EAF -MandatoryASLR'
+
+  FirefoxPluginContainer:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'FirefoxPluginContainer'
+    valuetype: 'String'
+    valuedata: '*\Mozilla Firefox\plugin-container.exe'
+
+  ThunderbirdPluginContainer:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'ThunderbirdPluginContainer'
+    valuetype: 'String'
+    valuedata: '*\Mozilla Thunderbird\plugin-container.exe'
+
+  mIRC:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'mIRC'
+    valuetype: 'String'
+    valuedata: '*\mIRC\mirc.exe'
+
+  Publisher:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Publisher'
+    valuetype: 'String'
+    valuedata: '*\OFFICE1*\MSPUB.EXE'
+
+  RealConverter:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'RealConverter'
+    valuetype: 'String'
+    valuedata: '*\Real\RealPlayer\realconverter.exe'
+
+  Winzip64:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Winzip64'
+    valuetype: 'String'
+    valuedata: '*\WinZip\winzip64.exe'
+
+  Opera_New_Versions:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Opera_New_Versions'
+    valuetype: 'String'
+    valuedata: '*\Opera\*\opera.exe'
+
+  Opera:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Opera'
+    valuetype: 'String'
+    valuedata: '*\Opera\opera.exe'
+
+  7z:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: '7z'
+    valuetype: 'String'
+    valuedata: '*\7-Zip\7z.exe -EAF'
+
+  7zFM:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: '7zFM'
+    valuetype: 'String'
+    valuedata: '*\7-Zip\7zFM.exe -EAF'
+
+  Firefox:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Firefox'
+    valuetype: 'String'
+    valuedata: '*\Mozilla Firefox\firefox.exe'
+
+  LiveWriter:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'LiveWriter'
+    valuetype: 'String'
+    valuedata: '*\Windows Live\Writer\WindowsLiveWriter.exe'
+
+  Chrome:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Chrome'
+    valuetype: 'String'
+    valuedata: '*\Google\Chrome\Application\chrome.exe -SEHOP'
+
+  Excel:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Excel'
+    valuetype: 'String'
+    valuedata: '*\OFFICE1*\EXCEL.EXE'
+
+  Pidgin:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Pidgin'
+    valuetype: 'String'
+    valuedata: '*\Pidgin\pidgin.exe'
+
+  Winamp:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Winamp'
+    valuetype: 'String'
+    valuedata: '*\Winamp\winamp.exe'
+
+  QuickTimePlayer:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'QuickTimePlayer'
+    valuetype: 'String'
+    valuedata: '*\QuickTime\QuickTimePlayer.exe'
+
+  Lync:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Lync'
+    valuetype: 'String'
+    valuedata: '*\OFFICE1*\LYNC.EXE'
+
+  Outlook:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Outlook'
+    valuetype: 'String'
+    valuedata: '*\OFFICE1*\OUTLOOK.EXE'
+
+  PPTViewer:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'PPTViewer'
+    valuetype: 'String'
+    valuedata: '*\OFFICE1*\PPTVIEW.EXE'
+
+  jre7_java:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'jre7_java'
+    valuetype: 'String'
+    valuedata: '*\Java\jre7\bin\java.exe -HeapSpray'
+
+  jre6_javaws:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'jre6_javaws'
+    valuetype: 'String'
+    valuedata: '*\Java\jre6\bin\javaws.exe -HeapSpray'
+
+  VisioViewer:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'VisioViewer'
+    valuetype: 'String'
+    valuedata: '*\OFFICE1*\VPREVIEW.EXE'
+
+  jre6_javaw:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'jre6_javaw'
+    valuetype: 'String'
+    valuedata: '*\Java\jre6\bin\javaw.exe -HeapSpray'
+
+  IE:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'IE'
+    valuetype: 'String'
+    valuedata: '*\Internet Explorer\iexplore.exe'
+
+  Skype:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Skype'
+    valuetype: 'String'
+    valuedata: '*\Skype\Phone\Skype.exe -EAF'
+
+  Winzip:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Winzip'
+    valuetype: 'String'
+    valuedata: '*\WinZip\winzip32.exe'
+
+  jre6_java:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'jre6_java'
+    valuetype: 'String'
+    valuedata: '*\Java\jre6\bin\java.exe -HeapSpray'
+
+  Visio:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Visio'
+    valuetype: 'String'
+    valuedata: '*\OFFICE1*\VISIO.EXE'
+
+  Word:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\Defaults'
+    valuename: 'Word'
+    valuetype: 'String'
+    valuedata: '*\OFFICE1*\WINWORD.EXE'
+
+  ASLR:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\SysSettings'
+    valuename: 'ASLR'
+    valuetype: 'Dword'
+    valuedata: '3'
+
+  SEHOP:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\SysSettings'
+    valuename: 'SEHOP'
+    valuetype: 'Dword'
+    valuedata: '2'
+
+  DEP:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\EMET\SysSettings'
+    valuename: 'DEP'
+    valuetype: 'Dword'
+    valuedata: '2'
+
+  MaxSize:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\EventLog\Application'
+    valuename: 'MaxSize'
+    valuetype: 'Dword'
+    valuedata: '32768'
+
+  MaxSize1:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\EventLog\Security'
+    valuename: 'MaxSize'
+    valuetype: 'Dword'
+    valuedata: '196608'
+
+  MaxSize2:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\EventLog\System'
+    valuename: 'MaxSize'
+    valuetype: 'Dword'
+    valuedata: '32768'
+
+  AlwaysInstallElevated:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Installer'
+    valuename: 'AlwaysInstallElevated'
+    valuetype: 'Dword'
+    valuedata: '0'
+
+  NoLockScreenCamera:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Personalization'
+    valuename: 'NoLockScreenCamera'
+    valuetype: 'Dword'
+    valuedata: '1'
+
+  NoLockScreenSlideshow:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Personalization'
+    valuename: 'NoLockScreenSlideshow'
+    valuetype: 'Dword'
+    valuedata: '1'
+
+  DontDisplayNetworkSelectionUI:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\System'
+    valuename: 'DontDisplayNetworkSelectionUI'
+    valuetype: 'Dword'
+    valuedata: '1'
+
+  AllowIndexingEncryptedStoresOrItems:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Windows Search'
+    valuename: 'AllowIndexingEncryptedStoresOrItems'
+    valuetype: 'Dword'
+    valuedata: '0'
+
+  EnableFirewall:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\DomainProfile'
+    valuename: 'EnableFirewall'
+    valuetype: 'Dword'
+    valuedata: '1'
+
+  DisableUnicastResponsesToMulticastBroadcast:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\DomainProfile'
+    valuename: 'DisableUnicastResponsesToMulticastBroadcast'
+    valuetype: 'Dword'
+    valuedata: '1'
+
+  AllowLocalPolicyMerge:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\DomainProfile'
+    valuename: 'AllowLocalPolicyMerge'
+    valuetype: 'Dword'
+    valuedata: '1'
+
+  DefaultInboundAction:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\DomainProfile'
+    valuename: 'DefaultInboundAction'
+    valuetype: 'Dword'
+    valuedata: '1'
+
+  DisableNotifications:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\DomainProfile'
+    valuename: 'DisableNotifications'
+    valuetype: 'Dword'
+    valuedata: '0'
+
+  AllowLocalIPsecPolicyMerge:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\DomainProfile'
+    valuename: 'AllowLocalIPsecPolicyMerge'
+    valuetype: 'Dword'
+    valuedata: '1'
+
+  DefaultOutboundAction:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\DomainProfile'
+    valuename: 'DefaultOutboundAction'
+    valuetype: 'Dword'
+    valuedata: '0'
+
+  DisableUnicastResponsesToMulticastBroadcast1:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\PrivateProfile'
+    valuename: 'DisableUnicastResponsesToMulticastBroadcast'
+    valuetype: 'Dword'
+    valuedata: '1'
+
+  EnableFirewall1:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\PrivateProfile'
+    valuename: 'EnableFirewall'
+    valuetype: 'Dword'
+    valuedata: '1'
+
+  AllowLocalIPsecPolicyMerge1:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\PrivateProfile'
+    valuename: 'AllowLocalIPsecPolicyMerge'
+    valuetype: 'Dword'
+    valuedata: '1'
+
+  AllowLocalPolicyMerge1:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\PrivateProfile'
+    valuename: 'AllowLocalPolicyMerge'
+    valuetype: 'Dword'
+    valuedata: '1'
+
+  DisableNotifications1:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\PrivateProfile'
+    valuename: 'DisableNotifications'
+    valuetype: 'Dword'
+    valuedata: '0'
+
+  DefaultInboundAction1:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\PrivateProfile'
+    valuename: 'DefaultInboundAction'
+    valuetype: 'Dword'
+    valuedata: '1'
+
+  DefaultOutboundAction1:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\PrivateProfile'
+    valuename: 'DefaultOutboundAction'
+    valuetype: 'Dword'
+    valuedata: '0'
+
+  DefaultOutboundAction2:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\PublicProfile'
+    valuename: 'DefaultOutboundAction'
+    valuetype: 'Dword'
+    valuedata: '0'
+
+  DisableUnicastResponsesToMulticastBroadcast2:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\PublicProfile'
+    valuename: 'DisableUnicastResponsesToMulticastBroadcast'
+    valuetype: 'Dword'
+    valuedata: '1'
+
+  DefaultInboundAction2:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\PublicProfile'
+    valuename: 'DefaultInboundAction'
+    valuetype: 'Dword'
+    valuedata: '1'
+
+  DisableNotifications2:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\PublicProfile'
+    valuename: 'DisableNotifications'
+    valuetype: 'Dword'
+    valuedata: '0'
+
+  EnableFirewall2:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\PublicProfile'
+    valuename: 'EnableFirewall'
+    valuetype: 'Dword'
+    valuedata: '1'
+
+  AllowLocalPolicyMerge2:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\PublicProfile'
+    valuename: 'AllowLocalPolicyMerge'
+    valuetype: 'Dword'
+    valuedata: '1'
+
+  AllowLocalIPsecPolicyMerge2:
+    key: 'HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\WindowsFirewall\PublicProfile'
+    valuename: 'AllowLocalIPsecPolicyMerge'
+    valuetype: 'Dword'
+    valuedata: '1'
