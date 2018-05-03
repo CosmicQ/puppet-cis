@@ -162,8 +162,8 @@ cis::linux::network::net_3_2::kernel_parameters:
 cis::linux::network::net_3_3::kernel_parameters:
   'net.ipv6.conf.all.accept_ra':                '0'
   'net.ipv6.conf.default.accept_ra':            '0'
-  'net.ipv6.conf.all.accept_redirects':         '0'
-  'net.ipv6.conf.default.accept_redirects':     '0'
+  'net.ipv6.conf.all.accept_redirect':          '0'
+  'net.ipv6.conf.default.accept_redirect':      '0'
 
 cis::linux::network::net_3_5::protocol_list:
   - 'dccp'

@@ -8,3 +8,9 @@ cis::linux::setup::set_1_4::grub_files:
 # Get your hashes:
 # RH6 - 'grub-md5-crypt'
 cis::linux::setup::set_1_4::grub_pass: '$1$xuW7q/$LV0V4zlhcxe4G9D4t9Ow/.'
+
+cis::linux::network::net_3_3::kernel_parameters:
+  'net.ipv6.conf.all.accept_ra':                '0'
+  'net.ipv6.conf.default.accept_ra':            '0'
+  'net.ipv6.conf.all.accept_redirect':          '0'
+  'net.ipv6.conf.default.accept_redirect':      '0'
