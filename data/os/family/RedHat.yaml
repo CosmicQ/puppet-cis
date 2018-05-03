@@ -65,7 +65,7 @@ cis::linux::setup::set_1_1::filesystem_mounts:
 # If you need NFS automounting, you will need to change these values (running, true).
 # Just make sure you remove auto.misc configs.
 cis::linux::setup::set_1_1::autofs:
-  autofs:           { ensure: 'stopped', enable: 'false' }
+  autofs:           { ensure: 'stopped', name: 'autofs', enable: 'false' }
 
 # Aide
 cis::linux::setup::set_1_3::aide_cron:
