@@ -57,9 +57,9 @@ class cis::linux::setup::set_1_1 (
 
     # 1.1.22 - Disable Automounting
     service { 'cis_autofs':
-      ensure    => $autofs[ensure],
-      name      => $autofs[name],
-      enable    => $autofs[enable],
+      ensure    => $autofs['ensure'],
+      name      => $autofs['name'],
+      enable    => $autofs['enable'],
     }
 
   }
